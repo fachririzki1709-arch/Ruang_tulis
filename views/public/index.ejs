@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>CatBlog - Write Read Be Happy</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header-public">
+            <div class="logo">🐱 CatBlog🐾</div>
+            <nav>
+                <a href="/">Home</a>
+                <a href="#">Artikel</a>
+                <a href="#">Cerpen</a>
+                <a href="#">Pantun</a>
+                <a href="#">Novel</a>
+            </nav>
+        </header>
+
+        <section class="hero-banner">
+            <div class="hero-text">
+                <h1>Selamat Datang di<br>CatBlog 🐾</h1>
+                <p>Temukan berbagai cerita, artikel, dan inspirasi di sini! ♡</p>
+            </div>
+        </section>
+
+        <div class="main-layout">
+            <div class="left-content">
+                <h2>🐾 Karya Terbaru</h2><br>
+                <div class="post-grid">
+                    <% posts.forEach(post => { %>
+                        <div class="card post-card">
+                            <span class="badge"><%= post.kategori %></span>
+                            <h3 style="margin: 10px 0;"><%= post.judul %></h3>
+                            <p style="font-size: 14px; color: #666;"><%= post.konten.substring(0, 80) %>...</p>
+                            <br>
+                            <a href="#" class="btn-read">Baca Selengkapnya ➔</a>
+                        </div>
+                    <% }) %>
+                </div>
+
+                <h2 style="margin-top: 40px;">🛍️ Toko Merchandise</h2><br>
+                <div class="post-grid">
+                    <% products.forEach(product => { %>
+                        <a href="<%= product.shopeeLink %>" target="_blank" class="card product-card">
+                            <img src="<%= product.gambarUrl %>" alt="<%= product.namaProduk %>" style="width:100%; border-radius:10px; height:180px; object-fit:cover;">
+                            <h3 style="margin: 10px 0; color:#333;"><%= product.namaProduk %></h3>
+                            <p style="color: #ee4d2d; font-weight:bold;">Rp <%= product.harga.toLocaleString('id-ID') %></p>
+                            <button class="btn-shopee">Beli di Shopee 🛒</button>
+                        </a>
+                    <% }) %>
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3>Ikuti Kami</h3>
+                    <p style="font-size: 12px; margin-top:5px;">Dapatkan update artikel terbaru!</p>
+                </div>
+                <div class="card">
+                    <h3>🐾 Kategori</h3>
+                    <ul class="cat-list">
+                        <li>📘 Artikel</li>
+                        <li>📙 Cerpen</li>
+                        <li>📗 Pantun</li>
+                        <li>👑 Novel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>

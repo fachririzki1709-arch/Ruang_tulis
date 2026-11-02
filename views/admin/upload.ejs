@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Admin - Upload Karya</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h2>👩‍💻 CatBlog<br><small style="font-size: 12px;">Admin Panel</small></h2>
+            <ul>
+                <li><a href="/admin/dashboard">🏠 Dashboard</a></li>
+                <li><a href="/admin/upload" style="background: rgba(255,255,255,0.2);">✍️ Tambah Tulisan</a></li>
+                <li><a href="/logout">🚪 Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <h3>Form Upload Tulisan</h3>
+                <div style="font-weight: bold;">👤 <%= adminName %></div>
+            </div>
+
+            <div class="card" style="max-width: 800px;">
+                <h2>Upload Karya Baru 🐾</h2><br>
+                <form action="/admin/upload" method="POST" class="admin-form">
+                    <label>Judul Karya</label>
+                    <input type="text" name="judul" required>
+
+                    <label>Kategori</label>
+                    <select name="kategori" required>
+                        <option value="Cerpen">Cerpen</option>
+                        <option value="Pantun">Pantun</option>
+                        <option value="Artikel">Artikel</option>
+                        <option value="Novel">Novel</option>
+                    </select>
+
+                    <label>Isi Tulisan</label>
+                    <textarea name="konten" rows="10" required></textarea>
+
+                    <button type="submit" class="btn-read" style="border:none; cursor:pointer; width:100%; margin-top: 15px;">Publikasikan Karya</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

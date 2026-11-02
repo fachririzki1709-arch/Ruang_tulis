@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Admin - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar">
+            <h2>👩‍💻 CatBlog<br><small style="font-size: 12px;">Admin Panel</small></h2>
+            <ul>
+                <li><a href="/admin/dashboard" style="background: rgba(255,255,255,0.2);">🏠 Dashboard</a></li>
+                <li><a href="/admin/upload">✍️ Tambah Tulisan</a></li>
+                <li><a href="/logout">🚪 Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <h3>Dashboard Admin</h3>
+                <div style="font-weight: bold;">👤 <%= adminName %></div>
+            </div>
+            
+            <div class="hero-banner" style="padding: 20px; border-radius: 15px;">
+                <h2>Selamat Datang, <%= adminName %>! 🐾</h2>
+                <p>Kelola konten blog dengan mudah.</p>
+            </div>
+
+            <h3 style="margin-top: 30px;">Daftar Tulisan Terakhir</h3>
+            <div class="card" style="margin-top: 15px;">
+                <table style="width: 100%; text-align: left; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <th style="padding: 10px;">Judul</th>
+                        <th style="padding: 10px;">Kategori</th>
+                        <th style="padding: 10px;">Tanggal</th>
+                    </tr>
+                    <% posts.forEach(post => { %>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;"><%= post.judul %></td>
+                        <td style="padding: 10px;"><span class="badge"><%= post.kategori %></span></td>
+                        <td style="padding: 10px;"><%= post.tanggalDibuat.toDateString() %></td>
+                    </tr>
+                    <% }) %>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
